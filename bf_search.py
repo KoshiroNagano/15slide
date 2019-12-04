@@ -9,7 +9,7 @@ def best_first_search():
     stdin = input("Please type the number of initial state : ")
     if stdin == "1" :
         field = ["1","2","3","4","5","6","7","8","9","11","14","*","13","10","15","12"]
-        
+
     if stdin == "2" :
         field = ["14","2","3","4","5","8","7","6","9","12","*","11","13","1","15","10"]
     L = int(math.sqrt(len(field)))
@@ -17,7 +17,7 @@ def best_first_search():
     #     sp = line.split()
     #     L = len(sp)
     #     field += sp
-
+    panele_list = [int(i) if i != "*" else 0 for i in field ] 
 
     cur = field.index('*')
 
@@ -87,7 +87,7 @@ def best_first_search():
             if temp == END:
                 # print (state)
                 num = [int(i) for i in history + [temp[cur]]]
-                return num
+                return num, panele_list 
             #訪問済みかどうかを確認
             if key in visited or cost + 1 + md + md_diff > 1000:
                 continue
@@ -100,5 +100,5 @@ def best_first_search():
         break
 if __name__ == "__main__":
     pass
-#     num_list = best_first_search()
-#     print(num_list)
+    # num_list, panele_list = best_first_search()
+    # print(num_list, panele_list)

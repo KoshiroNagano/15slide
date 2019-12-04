@@ -37,8 +37,8 @@ def ask_number(board, num):
     return piece , num
 def game():
     '''Run the game logic'''
-    num_list = bf_search.best_first_search()
-    panel_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 14, 0, 13, 10, 15, 12]
+    num_list, panel_list = bf_search.best_first_search()
+    # panel_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 14, 0, 13, 10, 15, 12]
     # map(panel_list)
     matrix = board(panel_list)
     draw_board(matrix)
