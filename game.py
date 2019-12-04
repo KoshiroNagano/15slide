@@ -1,4 +1,5 @@
 import random, sys
+import bf_search 
 def board(panel_list):
     '''Make matrix board of random numbers'''
     # list1 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
@@ -36,14 +37,15 @@ def ask_number(board, num):
     return piece , num
 def game():
     '''Run the game logic'''
+    num_list = bf_search.best_first_search()
     panel_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 14, 0, 13, 10, 15, 12]
+    # map(panel_list)
     matrix = board(panel_list)
     draw_board(matrix)
     empty_space = zero(matrix)
-    print(empty_space)
     move = 0
     direction = []
-    for num in [12, 15, 14, 11, 10, 14, 15]:
+    for num in num_list :
         piece,num = ask_number(matrix,num)
         print(piece, num)
         if(empty_space==(piece[0]-1,piece[1])):
